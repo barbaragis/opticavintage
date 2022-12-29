@@ -1,0 +1,95 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+li{
+    list-style: none;
+}
+h1{
+    font-size: 24px;
+    text-align: center;
+}
+
+h3 {
+    font-size: 16px;
+    font-family: 'Abyssinica SIL', serif;
+    letter-spacing: 1px;
+}
+.portada__titulo {
+    font-size: 30px;
+    text-align: center;
+    font-family: 'Abyssinica SIL', serif;
+    letter-spacing: 3px;
+    margin-top: 30px;
+}
+.portada__imagen {
+    background-image: url(../resources/fondo-gafas.jpg);
+    height: 30vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.portada__imagen h2 {
+    text-align: center;
+    font-family: Arial Black;
+    font-weight: bold;
+    font-size: 30px;
+    background: #202020;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-shadow: 0px 3px 3px rgb(255 255 255 / 40%), 0px -1px 1px rgb(0 0 0 / 30%);
+}
+
+.iconos__redes{
+    width: 70px;
+    height: 50px;
+}
+
+.imagen{
+    width: 250px;
+    height: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.contenido{
+    gap:30px;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+.titulo{
+    font-size: 25px;
+}
+
+.navbar{
+    background-color: rgb(225, 229, 242);
+}
+
+footer{
+    background-color: rgb(225, 229, 242);
+    
+}
+
+button{
+    width: 200px;
+    height: 50px;
+}
+
+.card{
+    width: 20vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom: 30px;
+    text-align: center;
+
+}
+
+
