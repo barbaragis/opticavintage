@@ -23,7 +23,7 @@
 <body>
   <!-- fila de navegacion y logo -->
   <header>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg ">
       <div class="container-fluid">
         <a class="navbar-brand" href="#">
           <img src="resources/favicon.ico">
@@ -46,6 +46,11 @@
               <a class="nav-link" href="#">Contacto</a>
             </li>
           </ul>
+          <form class="d-flex" role="search">
+            <span class="btn btn-outline-success" id="verCarrito" type="span">
+              🛒 </span>
+          </form>
+        
         </div>
       </div>
     </nav>
@@ -57,12 +62,33 @@
       <h1 class="portada__titulo"> OPTICA VINTAGE </h1>
     </article>
   </section>
-  </main>
+    <!-- Seccion con productos a la venta JAVASCRIPT-->
+    <section>
+    <div id="contenido" class="contenido"></div>
+    <div id="compra" class="compra" ></div>
+  </section>
+  <!-- Formulario NEWSLETTER  -->
+  <section class="d-flex justify-content-center">
+    <div class="card " style="width: 25rem;">
+      <h2> Suscríbete para más novedades </h2>
+      <form id="newsletter">
+      <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label"> Tu correo electrónico </label>
+        <input type="text" class="form-control" id="email" aria-describedby="emailHelp">
+      </div>
+      <button type="submit" class="btn btn-outline-success mb-3"> SUSCRIBIRSE </button>
+      </form>
+       <!-- Aviso al suscribirse -->
+    <div >
+      <div class="aviso"></div>
+    </div>
+  </section>
+</main>
 <!-- Footer -->
-<footer class="text-center text-lg-start bg-light text-muted">
+<footer class="text-center text-lg-start  text-muted">
   <!-- Seccion redes sociales -->
   <section class="d-flex justify-content-center  p-4 border-bottom">
-    <div class="me-5 d-none d-lg-block ">
+    <div class="me-5 d-none d-lg-block  ">
       <span> Encuentranos en nuestras redes sociales </span>
       <a href="https://facebook.com" target="_blank"><img  class="iconos__redes " src="resources/facebook-square-brands.svg"></a>
       <a href="https://instagram.com" target="_blank"> <img class="iconos__redes " src="resources/instagram-brands.svg"> </a>
