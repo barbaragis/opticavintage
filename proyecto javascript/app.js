@@ -1,101 +1,151 @@
 
 // OPTICA VINTAGE - Ecommerce de gafas de sol 
-// SEGUNDA PRE ENTREGA  
 
-/*Saludo de inicio */
+const verCarrito = document.getElementById("verCarrito");
+const compra = document.getElementById("compra");
+const contenido = document.getElementById("contenido");
 
-/* let usuario = (prompt("Le damos la bienvenida  \n Ingrese su nombre"));
-alert (" Bienvenido/a " +usuario+ "!") ; */
+//Productos
 
-// Modelo de gafas de sol a la venta
+const productos = [
+    {
+        id: "Gafas New Rose" ,
+        modelo: "NEW ROSE",
+        precio: 10000,
+        img: "https://cdn.shopify.com/s/files/1/0917/4492/products/STARLIGHT-pink-1_700x.png?v=1666581660",
+    },
 
-class gafas{
-    constructor (id , modelo , precio)  {
-        this.id=id;
-        this.modelo = modelo;
-        this.precio = parseFloat (precio);
+    {
+        id:"Gafas Black N30",
+        modelo: "GAFAS BLACK N30",
+        precio: 20000,
+        img: "https://cdn.shopify.com/s/files/1/0917/4492/products/STARLIGHT-smoke-1_2400x.png?v=1666581660",
+    },
+
+    {
+        id:"Gafas black aviador",
+        modelo: "GAFAS BLACK AVIADOR",
+        precio: 30000,
+        img: "https://cdn.shopify.com/s/files/1/0917/4492/products/LEY-6257_black_F_590x.jpg?v=1574391338",
     }
+];
 
-    sumaIva (){
-        this.precio = `$${this.precio * 1.21} `
-        console.log ( ` al precio se le incluye el Iva`) ;
+
+const aJson = JSON.stringify(productos)
+console.log(aJson)
+
+localStorage.setItem("Productos" , aJson)
+sessionStorage.setItem("Productos" , "Gafas black aviador")
+
+
+//obtener datos
+const productosCarrito = JSON.parse(localStorage.getItem("Productos"))
+console.log(productosCarrito)
+
+//guardar 
+localStorage.setItem("Productos" , JSON.stringify(productosCarrito))
+
+console.log(productosCarrito)
+
+
+let carrito = [] 
+
+// Crear elementos en HTML 
+productos.forEach((item) =>{
+    let crearContenido = document.createElement ("div");
+    crearContenido.className ="card";
+    crearContenido.innerHTML = `
+    <img class="imagen" src = "${item.img}">
+    <h2> ${item.modelo}</h2>
+    <p> $${item.precio} </p>
+
+    `;
+
+    contenido.append(crearContenido);
+
+    let agregar = document.createElement("button");
+    agregar.innerText  = "agregar" ;
+    agregar.className = "agregar";
+
+    crearContenido.append(agregar);
+
+    agregar.addEventListener("click", () => {
+        carrito.push({
+            id : item.id,
+            img: item.img,
+            modelo : item.modelo,
+            precio : item.precio,
+        });
+        console.log(carrito);
+    });
+
+});
+
+
+//Carrito con productos elegidos por el cliente (El cliente agrega los productos y cuando toca el icono del carrito puede ver su elección)
+
+verCarrito.addEventListener ("click" , () => {
+    const carritoTotal = document.createElement ("div");
+    carritoTotal.className = "carrito-total";
+    carritoTotal.innerHTML=` 
+    <h2> Mi carrito </h2>
+    ` ;
+
+    compra.append(carritoTotal);
+
+    const carritoBoton = document.createElement("h3");
+    carritoBoton.innerText = "X";
+    carritoBoton.className = "carrito-boton";
+    
+    carritoTotal.append(carritoBoton);
+
+
+    
+carrito.forEach((item) => {
+        let contenidoCarrito = document.createElement ("div");
+        contenidoCarrito.className = "carrito-content";
+        contenidoCarrito.innerHTML = `
+        <img class="imagen" src="${item.img}">
+        <h2> ${item.modelo}</h2>
+        <p>$${item.precio} </p>
+
+        `;
+
+    compra.append(contenidoCarrito);
+    });
+
+    const total = carrito.reduce ((acc , el ) => acc + el.precio , 0);
+
+    const totalCompra = document.createElement("div");
+    totalCompra.innerHTML = ` total a pagar  : $${total} ` ;
+    compra.append(totalCompra);
+
+
+});
+
+
+//formulario "NEWSLETTER"
+
+let emailFormulario = document.querySelector("#email");
+
+
+emailFormulario.addEventListener("input" , function () {
+    console.log(emailFormulario.value);
+    if (emailFormulario.value === ""){
+        alert("Debes ingresar un correo electronico");
     }
-}
+});
 
+let newsletter = document.querySelector("#newsletter");
 
-const producto0 = new gafas (0 , "modelo 0" , 10000 );
-const producto1 = new gafas (1 , "modelo 1" , 20000 );
-const producto2 = new gafas (2 , "modelo 2" , 30000 );
-const producto3 = new gafas (3 , "modelo 3" , 20000 );
-const producto4 = new gafas (4 , "modelo 4" , 25000 );
-const producto5 = new gafas (5 , "modelo 5" , 15000 );
+let aviso = document.querySelector(".aviso");
 
-const productosGafas= [ producto0 , producto1, producto2, producto3, producto4, producto5]
-console.log (productosGafas);
-
-// mensaje para el usuario
-
-/* let aviso = "Estos son nuestros modelos de gafas en promoción . \n  Elige la opción que más te guste \n "
-for (elemento of productosGafas){
-
-    aviso += `${elemento.id} - ${elemento.modelo} a $ ${elemento.precio} \n  `
-
-
-}
-
-
-let opcionUsuario = parseInt (prompt(aviso));
-
-const productoElegido = productosGafas.find (elemento => elemento.id == opcionUsuario) */
-
-//Funcion sumar IVA
-
-/* for (const elemento of productosGafas){
-    elemento.sumaIva;
-} */
-
-// Mensaje sobre el producto seleccionado
-
-/* alert (` Elegiste el modelo de gafas ${productoElegido.modelo} que tiene un valor de $ ${productoElegido.precio} con IVA incluido \n ` ) 
-
-
-
-/*PRIMERA PRE ENTREGA 
-
-//Saludo de inicio
-
-let usuario = (prompt("Le damos la bienvenida  \n Ingrese su nombre"));
-alert (" Bienvenido/a " +usuario+ "!") ;
-
-Eleccion del producto
-
-let compra= parseInt(prompt("¿ Que modelo de gafas desea comprar? Ingrese el numero del modelo : 1- Gafas de sol modelo 2022 2- Gafas de sol Edición Verano 2023 "))
-while ((compra !=1 && compra !=2 )) {
-    alert("Producto inexistente, por favor escoja una opción válida")
-    menu = parseInt(prompt("¿ Que modelo de gafas desea comprar? Ingrese el numero del modelo : 1- Gafas de sol modelo 2022 2- Gafas de sol Edición Verano 2023 "))
-    break;
-}
-
-/* function eleccion (){
-    switch (compra) {
-        case 1:
-            let modeloFiltro = parseInt (prompt("¿ Que tipo de filtro prefiere? Ingresa el número de la opción elegida ) : 1- Filtro solar 2- Polarizadas"))
-            if (modeloFiltro=== 1) {
-                alert ("El valor del modelo 2022 con filtro solar es de $20.000")
-            } else if (modeloFiltro=== 2) {
-                alert ("El valor del modelo 2022 con filtro solar es de $25.000")
-            }
-            break
-        case 2: 
-            let modeloPolarizadas = parseInt(prompt("¿ Qué tipo de filtro solar prefiere? Ingresa el número de la opción elegida) : 1- Filtro solar 2- Polarizadas"))
-            if (modeloPolarizadas ===1){
-                alert ("El valor del modelo 2023 con filtro polarizado es de $30.000")
-            } else if (modeloPolarizadas===2) {
-                alert ("El valor del modelo 2023 con filtro polarizado es de $35.000")
-            }
-    }
-}
-
-eleccion()  */
-
-
+//aviso cuando el usuario utiliza el boton SUSCRIBIRSE 
+const mostrarAviso = newsletter.addEventListener("submit" , function (e){
+    e.preventDefault();
+    aviso.innerHTML= `
+    <div class="alert alert-primary" role="alert">
+        <h3> Gracias por suscribirte ! </h3>
+    </div>
+    `
+});
