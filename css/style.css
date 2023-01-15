@@ -5,10 +5,12 @@
 
 a {
     text-decoration: none;
+    color: black;
 }
 
 a:hover{
     text-decoration: underline;
+    color: black;
 }
 li{
     list-style: none;
@@ -28,16 +30,13 @@ h3 {
     text-align: center;
     font-family: 'Abyssinica SIL', serif;
     letter-spacing: 3px;
-    margin-top: 30px;
-}
-.portada__imagen {
-    background-image: url(../resources/fondo-gafas.jpg);
-    height: 30vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    margin-top: 10px;
 }
 
+.card-img{
+    width: 50vw;
+    height: 80vh;
+}
 .portada__imagen h2 {
     text-align: center;
     font-family: Arial Black;
@@ -51,9 +50,27 @@ h3 {
     text-shadow: 0px 3px 3px rgb(255 255 255 / 40%), 0px -1px 1px rgb(0 0 0 / 30%);
 }
 
+
+.producto-titulo{
+    font-size: 16px;
+}
+
 .iconos__redes{
     width: 70px;
     height: 50px;
+}
+
+.carousel-tamanio{
+    height: 80vh;
+}
+
+.carousel-boton{
+    width: 100px;
+    height: 70px;
+    background-color: white;
+    color: black;
+    border: none;
+    border-color: gray;
 }
 
 .imagen{
@@ -68,37 +85,78 @@ h3 {
 .contenido{
     gap:30px;
     display: flex;
+    flex-direction: row;
     justify-content: space-around;
     flex-wrap: wrap;
+
 }
+
+.busqueda-contenedor{
+    width: 90%;
+    margin: 0 auto;
+}
+
+#busqueda-barra input{
+    background-color: transparent;
+    width: 40%;
+    border-bottom: 2px solid black;
+
+
+}
+
+
+.agregar{
+    font-size: 16px;
+    background-color: black;
+    border: none;
+    margin-bottom: 10px;
+     padding: 0.85em 1.5em;
+  font-size: 1 em;
+  cursor: pointer;
+  text-decoration: none;
+  border: 1px solid #222;
+  border-radius: 0;
+}
+
+
 .titulo{
     font-size: 25px;
 }
 
 .navbar{
-    background-color: rgb(225, 229, 242);
+    background-color: white;
+
 }
+
 
 footer{
     background-color: rgb(225, 229, 242);
     
 }
 
-button{
-    width: 200px;
-    height: 50px;
-}
+
 
 .card{
     width: 20vw;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin-bottom: 30px;
+    margin: 30px 0px 30px 30px;
     text-align: center;
+    box-shadow: #202020;
+    transition: transform 1s;
 
 }
 
+.card:hover{
+    transform: scale(1.1)
+}
+
+.carrito{
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+}
 .cuenta{
     font-size: 16px;
     display: flex;
@@ -107,3 +165,96 @@ button{
 }
 
 
+
+.modal-container{
+    width: 40%;
+    margin: 0 10%;
+    max-height: 88vh;
+    color: white;
+    background-color: black;
+    opacity: .90;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: fixed;
+    overflow: auto;
+    z-index: 9;
+    top: 12vh;
+}
+
+
+.cantidad{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.modal-container::-webkit-scrollbar{
+    display: none;
+}
+
+
+.modal-header{
+    display: flex;
+    justify-content: space-around;
+    background-color: white;
+    color:black;
+    width: 100%;
+}
+.modal-header-title{
+    justify-self: start;
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+
+.modal-title{
+    font-size: 16px;
+    color: black;
+    text-align: center;
+}
+
+
+.modal-container > .modal-content{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 60%;
+    margin: 10px;
+}
+.modal-content img{
+    width: 150px;
+    height: 150px;
+    margin-bottom: 20px;
+}
+
+.modal-content h2{
+    font-size: 16px;
+
+}
+.modelo{
+    text-align: center;
+}
+.total{
+    font-size: 30px;
+    padding: 20px;
+    text-align: center;
+}
+
+.newsletter{
+    width: 100px;
+    color: white;
+    background-color: #202020;
+}
+
+
+.formulario__titulo{
+    font-size: 20px;
+}
+.submit{
+    font-size: 16px;
+    width: 150px;
+    color: #202020;
+}
