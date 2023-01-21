@@ -3,6 +3,7 @@
     padding: 0px;
 }
 
+
 a {
     text-decoration: none;
     color: black;
@@ -14,6 +15,7 @@ a:hover{
 }
 li{
     list-style: none;
+    
 }
 h1{
     font-size: 24px;
@@ -25,6 +27,12 @@ h3 {
     font-family: 'Abyssinica SIL', serif;
     letter-spacing: 1px;
 }
+
+
+.boton-categoria{
+    position: sticky;
+    gap: 30px;
+}
 .portada__titulo {
     font-size: 30px;
     text-align: center;
@@ -33,10 +41,6 @@ h3 {
     margin-top: 10px;
 }
 
-.card-img{
-    width: 50vw;
-    height: 80vh;
-}
 .portada__imagen h2 {
     text-align: center;
     font-family: Arial Black;
@@ -50,6 +54,26 @@ h3 {
     text-shadow: 0px 3px 3px rgb(255 255 255 / 40%), 0px -1px 1px rgb(0 0 0 / 30%);
 }
 
+aside{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.titulo{
+    text-align: center;
+}
+
+
+
+
+.contenido{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+text-align: center;
+margin-bottom: 20px;
+}
 
 .producto-titulo{
     font-size: 16px;
@@ -59,6 +83,7 @@ h3 {
     width: 70px;
     height: 50px;
 }
+
 
 .carousel-tamanio{
     height: 80vh;
@@ -73,188 +98,179 @@ h3 {
     border-color: gray;
 }
 
-.imagen{
-    width: 250px;
-    height: 250px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-.contenido{
-    gap:30px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    flex-wrap: wrap;
-
-}
-
-.busqueda-contenedor{
-    width: 90%;
-    margin: 0 auto;
-}
-
-#busqueda-barra input{
-    background-color: transparent;
-    width: 40%;
-    border-bottom: 2px solid black;
-
-
-}
-
-
-.agregar{
-    font-size: 16px;
-    background-color: black;
-    border: none;
-    margin-bottom: 10px;
-     padding: 0.85em 1.5em;
-  font-size: 1 em;
-  cursor: pointer;
-  text-decoration: none;
-  border: 1px solid #222;
-  border-radius: 0;
-}
-
-
-.titulo{
-    font-size: 25px;
-}
 
 .navbar{
     background-color: white;
 
 }
 
+.carrito-prod-titulos{
+display: grid;
+}
 
+.productos-agregar{
+    width: 200px;
+}
 footer{
     background-color: rgb(225, 229, 242);
     
 }
 
-
-
-.card{
-    width: 20vw;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    margin: 30px 0px 30px 30px;
-    text-align: center;
-    box-shadow: #202020;
-    transition: transform 1s;
+.productos-imagen{
+    width: 150px;
+    height: 150px;
 
 }
 
-.card:hover{
-    transform: scale(1.1)
+
+main{
+    background-color: white;
+    
 }
 
-.carrito{
-    display: flex;
-    flex-direction: row;
-    text-align: center;
-}
-.cuenta{
+
+
+.boton-filtro{
     font-size: 16px;
+    background-color: transparent;
+    color: black;
     display: flex;
-    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    gap: 20px;
+    border: none;
+    padding: 20px;
+
+}
+
+.boton-carrito{
+    font-size: 20px;
+    background-color: transparent;
+    color: gray;
+    display: flex;
+    align-items: flex-end;
+    width: 100%;
+    gap: 10px;
+    border: none;
+    padding: 20px;
+
+}
+
+
+.boton-filtro.active{
+    font-size: 20px;
+    text-decoration: underline;
+    position: relative;
+    
+}
+
+.boton-filtro.active::before{
+    content: '';
+    position: absolute;
+    width: 1rem;
+    bottom: 100%;
+    background-color: transparent;
+
+}
+
+.carrito-producto{
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    margin-bottom: 20px;
+    padding: 16px;
+}
+
+
+.boton-filtro.active::after{
+    content: '';
+    position: absolute;
+    background-color: transparent;
+}
+
+.container-carrito{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 16px;
     text-align: center;
 }
 
-
-
-.modal-container{
-    width: 40%;
-    margin: 0 10%;
-    max-height: 88vh;
-    color: white;
-    background-color: black;
-    opacity: .90;
+.carrito-productos{
     display: flex;
     flex-direction: column;
     align-items: center;
-    position: fixed;
-    overflow: auto;
-    z-index: 9;
-    top: 12vh;
 }
 
-
-.cantidad{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
-}
-
-.modal-container::-webkit-scrollbar{
+.disabled{
     display: none;
 }
 
-
-.modal-header{
+.carrito-prod-eliminar{
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+}
+.carrito-producto{
     display: flex;
-    justify-content: space-around;
-    background-color: white;
-    color:black;
-    width: 100%;
+    justify-content: space-between;
+
 }
-.modal-header-title{
-    justify-self: start;
-    font-size: 20px;
-    margin-bottom: 20px;
+.carrito-prod-imagen{
+    width: 200px;
+
 }
 
-
-.modal-title{
-    font-size: 16px;
-    color: black;
-    text-align: center;
-}
-
-
-.modal-container > .modal-content{
+.carrito-botones{
     display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    width: 60%;
-    margin: 10px;
-}
-.modal-content img{
-    width: 150px;
-    height: 150px;
-    margin-bottom: 20px;
+    justify-content: space-between;
+    padding: 16px;
 }
 
-.modal-content h2{
-    font-size: 16px;
-
-}
-.modelo{
-    text-align: center;
-}
-.total{
-    font-size: 30px;
-    padding: 20px;
-    text-align: center;
-}
-
-.newsletter{
+.carrito-vaciar{
     width: 100px;
-    color: white;
-    background-color: #202020;
+    height: 50px;
+    border: 0;
+    padding: 16px;
+    text-transform: uppercase;
+    margin-top: 20px;
+
+}
+
+.carrito-compra{
+    width: 100px;
+    height: 50px;
+    border: 0;
+    padding: 16px;
+    text-transform: uppercase;
+    margin-top: 20px;
+
 }
 
 
-.formulario__titulo{
-    font-size: 20px;
+
+.carrito-botones-total{
+    display: flex;
+    justify-content: space-between;
 }
-.submit{
-    font-size: 16px;
-    width: 150px;
-    color: #202020;
+
+.newsletter-modal{
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
 }
+
+.newsletter-bg{
+    width: 50%;
+    margin: 100px auto;
+    text-align: center;
+}
+
+form h2{
+    color: gray;
+}
+
+.form-group input{
+    width: 60%;
+}
+

@@ -1,11 +1,5 @@
 
-// OPTICA VINTAGE - Ecommerce de gafas de sol 
-
-const contenido = document.getElementById("contenido"); 
-const verCarrito = document.getElementById("verCarrito"); 
-const modalContainer = document.getElementById("modalContainer");
-const cantCarrito = document.getElementById("cantCarrito");
-
+// OPTICA VINTAGE - Ecommerce de lentes
 
 
 //Productos
@@ -16,7 +10,10 @@ const productos = [
         modelo: "GOLD BLUE",
         precio: 10000,
         img: "https://cdn.shopify.com/s/files/1/0532/8070/2649/products/drip-670663_800x.jpg?v=1643435359",
-        cantidad: 1,
+        categoria: {
+            modelo: "Lentes de sol",
+            id:"sol"
+        },
     },
 
     {
@@ -24,7 +21,10 @@ const productos = [
         modelo: "AVIADOR BLACK",
         precio: 20000,
         img: "https://cdn.shopify.com/s/files/1/0532/8070/2649/products/john-334597_800x.jpg?v=1643435433",
-        cantidad: 1,
+        categoria: {
+            modelo: "Lentes de sol",
+            id:"sol"
+        },
     },
 
     {
@@ -33,6 +33,10 @@ const productos = [
         precio: 20000,
         img: "https://cdn.shopify.com/s/files/1/0532/8070/2649/products/durk-692810_800x.jpg?v=1643435357",
         cantidad: 1,
+        categoria: {
+            modelo: "Lentes de sol",
+            id:"sol"
+        },
     },
 
     {
@@ -40,7 +44,10 @@ const productos = [
         modelo: "NEW ROSE",
         precio: 20000,
         img: "https://cdn.shopify.com/s/files/1/0532/8070/2649/products/savage-892578_800x.jpg?v=1643435484",
-        cantidad: 1,
+        categoria: {
+            modelo: "Lentes de sol",
+            id:"sol"
+        },
     },
 
     {
@@ -48,7 +55,10 @@ const productos = [
         modelo: "JOHN",
         precio: 20000,
         img: "https://cdn.shopify.com/s/files/1/0532/8070/2649/products/joy-113521_800x.jpg?v=1668002392",
-        cantidad: 1,
+        categoria: {
+            modelo: "Lentes de sol",
+            id:"lentes de sol"
+        },
     },
 
     {
@@ -56,7 +66,10 @@ const productos = [
         modelo: "SUGAR",
         precio: 20000,
         img: "https://cdn.shopify.com/s/files/1/0532/8070/2649/products/sugar-672458_800x.jpg?v=1643435492",
-        cantidad: 1,
+        categoria: {
+            modelo: "Lentes de sol",
+            id:"sol"
+        },
     },
 
     {
@@ -64,7 +77,10 @@ const productos = [
         modelo: "PRINT",
         precio: 20000,
         img: "https://cdn.shopify.com/s/files/1/0532/8070/2649/products/notchy-498662_800x.jpg?v=1643435424",
-        cantidad: 1,
+        categoria: {
+            modelo: "Lentes de sol",
+            id:"sol"
+        },
     },
 
     {
@@ -72,7 +88,21 @@ const productos = [
         modelo: "HEXAGON",
         precio: 20000,
         img: "https://cdn.shopify.com/s/files/1/0532/8070/2649/products/hexagon-blue-light-722249_800x.jpg?v=1659704777",
-        cantidad: 1,
+        categoria: {
+            modelo: "Lentes de vista",
+            id:"vista"
+        },
+    },
+    
+    {
+        id:"Blue",
+        modelo: "HUSTLE",
+        precio: 30000,
+        img: "https://cdn.shopify.com/s/files/1/0532/8070/2649/products/hustle-blue-light-756258_800x.jpg?v=1643435426",
+        categoria: {
+            modelo: "Lentes de vista",
+            id:"vista"
+        },
     },
 
     {
@@ -80,7 +110,10 @@ const productos = [
         modelo: "MONACO",
         precio: 20000,
         img: "https://cdn.shopify.com/s/files/1/0532/8070/2649/products/monaco-781944_800x.jpg?v=1672175481",
-        cantidad: 1,
+        categoria: {
+            modelo: "Lentes de sol",
+            id:"sol"
+        },
     },
 
     {
@@ -89,245 +122,151 @@ const productos = [
         categoria: "Accesorios",
         precio: 20000,
         img: "https://cdn.shopify.com/s/files/1/0532/8070/2649/products/chains-947165_800x.jpg?v=1643435357",
-        cantidad: 1,
+        categoria: {
+            modelo: "Accesorios",
+            id:"accesorios"
+        },
+    
     },
     
 
     {
         id:"Funda",
         modelo: "FUNDA",
-        categoria: "Accesorios",
         precio: 30000,
         img: "https://cdn.shopify.com/s/files/1/0532/8070/2649/products/the-case-598069_800x.jpg?v=1668070562",
-        cantidad: 1,
+        categoria: {
+            modelo: "Accesorios",
+            id:"accesorios"
+        },
+      
     }
 ];
 
-//barra de busqueda
+
+const containerProductos = document.querySelector("#container-prod");
+const botonCategoria = document.querySelectorAll(".boton-categoria");
+const titulo = document.querySelector("#titulo");
+const cantidad = document.querySelector("#cantidad");
+let agregarProducto = document.querySelectorAll(".productos-agregar");
 
 
+//Contenedor de productos 
 
+function verProductos (productoSeleccionado) {
 
-
-let carrito = JSON.parse(localStorage.getItem("productos")) || [];
-
-productos.forEach((item) =>{
-    let crearContenido = document.createElement ("div");
-    crearContenido.className ="div";
-    crearContenido.innerHTML = `
-    <div class="card" style="width: 18rem;">
-    <div class="card-body">
-    <img class="imagen" src = "${item.img}">
-    </div>
-    <h2 class="producto-titulo"> ${item.modelo}</h2>
-    <p> $${item.precio} </p>
-    </div>
-    `
-    contenido.append(crearContenido);
-
-    let agregar = document.createElement("button");
-    agregar.innerText  = "🛒 " ;
-    agregar.className = "agregar";
-
-    crearContenido.append(agregar);
-
-    agregar.addEventListener("click", () =>  {
-        const repetir = carrito.some((repetirProducto) => repetirProducto.id === item.id);
-        if (repetir) {
-            carrito.map((prod) => {
-                if (prod.id === item.id) {
-                    prod.cantidad++;
-                }
-            });
-        } else {
-        carrito.push({
-            id : item.id,
-            img: item.img,
-            modelo : item.modelo,
-            precio : item.precio,
-            cantidad: item.cantidad,
-        });
-    }
-    Swal.fire({
-        position: 'bottom-end',
-        icon: 'success',
-        text: '',
-        title: ' Producto agregado al carrito',
-        showConfirmButton: false,
-        timer: 1500,
-        padding: '1rem',
-        grow: 'row',
-        toast: 'true',
-        color: 'white',
-        background: 'black',
-      })
-        console.log(carrito);
-        carritoNumero();
-        guardarProductos();
-    });
-});
-
-const guardarProductos = () => {
-    localStorage.setItem ("productos" , JSON.stringify(carrito));
-}
-
-
-
-
-const mostrarCarrito = () =>{
-    modalContainer.innerHTML= "";
-    modalContainer.style.display= "flex";
-    const modalHeader = document.createElement ("div");
-    modalHeader.className = "modal-header"
-    modalHeader.innerHTML= `
-    <div class="modal-content">
-      <div class="modal-header">
-        <h2 class="modal-title"> CARRITO</h2>
-      </div>
-    </div>
-  </div>
-</div>
-`;
-
-    modalContainer.append(modalHeader);
-
-    const modalButton = document.createElement("h3");
-    modalButton.innerText = "✖";
-    modalButton.className = "modal-header-boton";
-
-    modalButton.addEventListener("click" , () => {
-        modalContainer.style.display = "none";
-    });
-
-    modalHeader.append(modalButton);
-
-
-
-     carrito.forEach((item) => {
-        let productoElegido = document.createElement("div");
-        productoElegido.className = "modal-content";
-        productoElegido.innerHTML = `
-        <div>
-        <img class="imagen" src=${item.img}
+    containerProductos.innerHTML = "";
+    productoSeleccionado.forEach (item => {
+        const div = document.createElement("div");
+        div.classList.add("productos");
+        div.innerHTML= `
+        <div class="card " style="width: 18rem;">
+        <img class="card-img-top"  src="${item.img}">
+        <div class="card-body">
+          <h3 class="card-title"> ${item.modelo}</h3>
+          <p class="productos-precio">$${item.precio}</p>
+          <button class="productos-agregar" id="${item.id}"> Agregar al carrito  </button>
         </div>
-        <div class="cantidad">
-        <h3 class="restar" > ➖ </h3>
-        <h3 >  ${item.cantidad} </h3>
-        <h3 class="sumar" > ➕ </h3>
         </div>
-    <h2 class="modelo"> ${item.modelo}</h2>
-    <h3> SUBTOTAL $ ${item.cantidad * item.precio}  </h3>
-    `; 
+      `;
+      containerProductos.append(div);
 
-    modalContainer.append(productoElegido);
-
-    //total
-
-    const total = carrito.reduce((acc, el) => acc + el.precio * el.cantidad, 0);
-
-    const totalCompra = document.createElement("div");
-    totalCompra.className= "total"
-    totalCompra.innerHTML = ` Total : $  ${total} `;
+      agregar();
     
-
-    modalContainer.append(totalCompra)
-
-    console.log(carrito.length);
-
-    let restar = productoElegido.querySelector(".restar");
-
-    restar.addEventListener("click" , () => {
-        if(item.cantidad !== 1){
-            item.cantidad--;
-            guardarProductos();
-        }
-
-        mostrarCarrito();
-    });
-
-
-    let sumar = productoElegido.querySelector(".sumar");
-
-    sumar.addEventListener("click" , () => {
-            item.cantidad++;
-            guardarProductos();
-        mostrarCarrito();
-    });
-
-    let eliminar = document.createElement("span");
-    eliminar.innerText = "🗑️";
-    eliminar.className = "borrar";
-    productoElegido.append(eliminar);
-
-    eliminar.addEventListener("click" , eliminarItem);
     })
 
+}
+
+verProductos(productos);
+
+
+// Botones con categorias de productos
+
+botonCategoria.forEach(boton => {
+
+    boton.addEventListener ("click", (e) => {
     
+       botonCategoria.forEach(boton => boton.classList.remove ("active"));
 
+       e.currentTarget.classList.add ("active");
+    
+       if (e.currentTarget.id != "todos") {
+        const prodCategoria = productos.find (item => item.categoria.id === e.currentTarget.id)
+        titulo.innerText = prodCategoria.categoria.modelo;
 
-};
+        const productoBoton = productos.filter(item => item.categoria.id === e.currentTarget.id);
+        verProductos(productoBoton);
+    }else {
+        titulo.innerText = "Todos los productos";
+        verProductos(productos);
+    }
+    })
+})
 
-verCarrito.addEventListener ("click" , mostrarCarrito);
+function agregar (){
 
-//eliminar un producto
+    let agregarProducto = document.querySelectorAll(".productos-agregar");
+    agregarProducto.forEach (boton => {
 
-const eliminarItem = () =>{
-    const buscar = carrito.find((element) => element.id);
-
-    carrito = carrito.filter((carritoItem) => {
-        return carritoItem !== buscar;
+        boton.addEventListener("click" , agregarCarrito);
     });
 
+}
+
+let carrito;
+let carritoLS = localStorage.getItem("carrito");
+
+if (carritoLS){
+    carrito = JSON.parse(carritoLS);
     carritoNumero();
-    guardarProductos();
-    mostrarCarrito();
-};
+}else{
+    carrito = [];
 
-const carritoNumero = () => {
-    cantCarrito.style.display = "block";
+}
+
+function agregarCarrito (e){
+    Swal.fire({
+        position: 'top-end',
+        icon: 'success',
+        title: 'Producto agregado al carrito',
+        showConfirmButton: false,
+        timer: 1500
+      })
+    const idAgregar = e.currentTarget.id;
+    const prodAgregado = productos.find (item => item.id === idAgregar);
+    
+    if(carrito.some(item => item.id === idAgregar)){
+        const index = carrito.findIndex(item => item.id === idAgregar);
+        carrito[index].cantidad++;
+    }else{
+        prodAgregado.cantidad = 1;
+        carrito.push(prodAgregado);
+    }
+
+    carritoNumero();
+
+    localStorage.setItem("carrito" , JSON.stringify(carrito))
+}
+
+function carritoNumero (){
+    let numero = carrito.reduce ((acc , item) => acc + item.cantidad , 0);
+    cantidad.innerText = numero;
+}
+
+//NEWSLETTER
+
+const newsletter = document.querySelector('.newsletter-modal');
+const newsletterNuevo = document.getElementById('newsletter-formulario');
 
 
-    const carritoLenght = carrito.length;
-    localStorage.setItem("carritoLength" , JSON.stringify(carritoLenght))
-    cantCarrito.innerText = JSON.parse(localStorage.getItem("carritoLength"));
-
-};
-
-carritoNumero();
-
-
-
-
-// Crear elementos en HTML 
-/*
-
-
-
-
-//formulario "NEWSLETTER"
-
-let emailFormulario = document.querySelector("#email");
-
-
-emailFormulario.addEventListener("input" , function () {
-    console.log(emailFormulario.value);
-    if (emailFormulario.value === ""){
-        alert("Debes ingresar un correo electronico");
+newsletter.addEventListener('click' , (e) => {
+    if (e.target == newsletter){
+        newsletter.style.display = 'none';
     }
 });
 
-let newsletter = document.querySelector("#newsletter");
+newsletterNuevo.addEventListener ('submit' , (e) => {
+    e.preventDefault ();
 
-let aviso = document.querySelector(".aviso");
-
-//aviso cuando el usuario utiliza el boton SUSCRIBIRSE 
-const mostrarAviso = newsletter.addEventListener("submit" , function (e){
-   /*  e.preventDefault();
-    aviso.innerHTML= `
-    <div class="alert alert-primary" role="alert">
-        <h3> Gracias por suscribirte ! </h3>
-    </div>
-    `
-}); */
-
-
+    newsletter.style.display = 'none';
+});
