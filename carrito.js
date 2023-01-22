@@ -1,5 +1,5 @@
-let carrito= localStorage.getItem("carrito");
-carrito= JSON.parse(carrito);
+let carrito = localStorage.getItem("carrito");
+carrito = JSON.parse(carrito);
 
 const carritoVacio = document.querySelector("#carrito-vacio");
 const carritoProductos = document.querySelector("#carrito-productos");
@@ -30,19 +30,19 @@ function verProductosDeCarrito(){
     div.innerHTML = `
     <img class="carrito-prod-imagen" src="${item.img}" alt=${item.modelo}>
     <div class="carrito-prod-titulos">
-        <p> MODELO </p>
+        <p class="carrito-subtitulo"> MODELO </p>
         <h4> ${item.modelo} </h4>
     </div>
     <div class="carrito-prod-titulos"">
-        <p> CANTIDAD </p>
+        <p class="carrito-subtitulo"> CANTIDAD </p>
         <h4> ${item.cantidad}</h4>
     </div>
     <div class="carrito-prod-titulos"">
-        <p> PRECIO </p>
+        <p class="carrito-subtitulo"> PRECIO </p>
         <h4> $ ${item.precio} </h4>
     </div>
     <div class="carrito-prod-titulos"">
-        <p> SUBTOTAL </p>
+        <p class="carrito-subtitulo"> SUBTOTAL </p>
         <h4> $ ${item.precio * item.cantidad}</h4>
     </div>
     <button class="carrito-prod-eliminar" id="${item.id}">🗑️</button>
@@ -120,8 +120,9 @@ function vaciarCarrito(){
 // Total de compra 
 function generarTotal(){
     const totalNumero = carrito.reduce((acc, item) => acc + (item.precio * item.cantidad) , 0);
+    totalCompra.className ="total";
     totalCompra.innerText =  `
-    TOTAL : $ ${totalNumero}
+    TOTAL A PAGAR : $ ${totalNumero}
     `
 }
 

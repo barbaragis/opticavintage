@@ -63,6 +63,7 @@ botonCategoria.forEach(boton => {
         verProductos(productoBoton);
     }else {
         titulo.innerText = "Todos los productos";
+        titulo.className = "titulo"
         verProductos(productos);
     }
     })

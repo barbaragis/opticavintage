@@ -13,6 +13,7 @@ a:hover{
     text-decoration: underline;
     color: black;
 }
+
 li{
     list-style: none;
     
@@ -39,6 +40,7 @@ h3 {
     font-family: 'Abyssinica SIL', serif;
     letter-spacing: 3px;
     margin-top: 10px;
+    padding: 20px;
 }
 
 .portada__imagen h2 {
@@ -60,11 +62,21 @@ aside{
     justify-content: space-around;
 }
 
+.content{
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+}
+
+aside .carrito{
+    position: sticky;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
 .titulo{
     text-align: center;
 }
-
-
 
 
 .contenido{
@@ -75,6 +87,21 @@ text-align: center;
 margin-bottom: 20px;
 }
 
+
+
+.productos-agregar{
+    width: 170px;
+    height: 40px;
+    transition: transform 0.2s ease;
+    box-shadow: 0 4px 6px 0 rgba(22, 22, 26, 0.18);
+    border-radius: 0;
+    border: 0;
+    margin-bottom: 1.5em;
+}
+
+.productos-agregar:hover{
+    transform: scale(1.1);
+}
 .producto-titulo{
     font-size: 16px;
 }
@@ -114,9 +141,7 @@ margin-bottom: 20px;
 display: grid;
 }
 
-.productos-agregar{
-    width: 200px;
-}
+
 footer{
     background-color: rgb(225, 229, 242);
     
@@ -141,9 +166,12 @@ main{
     text-align: center;
     margin-bottom: 20px;
 }
-
+.titulo{
+    font-family: 'Playfair Display', serif;
+}
 
 .boton-filtro{
+    font-family: 'Playfair Display', serif;
     font-size: 16px;
     background-color: transparent;
     color: black;
@@ -186,11 +214,20 @@ main{
 
 }
 
+
+.titulo__carrito{
+    font-family: 'Playfair Display', serif;
+    font-size: 30px;
+    text-align: center;
+}
+
+.carrito-subtitulo{
+    font-family: 'Playfair Display', serif;
+}
 .carrito-producto{
-    width: 100%;
+    width: 80%;
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    margin-bottom: 20px;
+    grid-template-columns: repeat(3, 1fr);
     padding: 16px;
 }
 
@@ -215,10 +252,24 @@ main{
     align-items: center;
 }
 
+.total-compra{
+    font-size: 30px;
+
+}
+
 .disabled{
     display: none;
 }
 
+.link-volver{
+    margin-top: 40px;
+}
+
+.total{
+    font-size: 20px;
+    font-family: 'Playfair Display', serif;
+
+}
 .carrito-prod-eliminar{
     width: 40px;
     height: 40px;
@@ -228,6 +279,11 @@ main{
     display: flex;
     justify-content: space-between;
 
+}
+
+.carrito-prod-titulos{
+    font-family: 'Roboto', sans-serif;
+    
 }
 .carrito-prod-imagen{
     width: 200px;
