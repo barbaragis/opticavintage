@@ -130,7 +130,7 @@ function carritoNumero (){
 }
 
 
-//newsletter
+//newsletter Formulario
 
 function enviarForm(){
     let nombreForm = document.getElementById("nombre").value;
@@ -144,12 +144,12 @@ function enviarForm(){
             position: "top", 
             stopOnFocus: true, 
             style: {
-              background: "(to right, #D4A373, #96c93d)",
+            background: "(to right, #D4A373, #96c93d)",
             },
             onClick: function(){} 
-          }).showToast();
+        }).showToast();
     
-          document.getElementById("nombre").focus();
+        document.getElementById("nombre").focus();
 
     }else{
         if (emailForm == ""){
@@ -161,10 +161,10 @@ function enviarForm(){
                 position: "top",
                 stopOnFocus: true, 
                 style: {
-                  background: "linear-gradient(to right, #00b09b, #96c93d)",
+                background: "linear-gradient(to right, #00b09b, #96c93d)",
                 },
                 onClick: function(){} 
-              }).showToast();
+            }).showToast();
         document.getElementById("correo").focus();
         }else{
 
@@ -183,6 +183,6 @@ function enviarForm(){
                   background: "linear-gradient(to right, #D5BDAF #D5BDAF)",
                 },
                 onClick: function() {} 
-              }).showToast();
+            }).showToast();
             }
         }}
