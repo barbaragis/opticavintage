@@ -1,5 +1,5 @@
-let carrito = localStorage.getItem("carrito");
-carrito = JSON.parse(carrito);
+let carrito= localStorage.getItem("carrito");
+carrito= JSON.parse(carrito);
 
 const carritoVacio = document.querySelector("#carrito-vacio");
 const carritoProductos = document.querySelector("#carrito-productos");

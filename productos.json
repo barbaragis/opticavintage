@@ -82,7 +82,7 @@
         "precio": 20000,
         "img": "https://cdn.shopify.com/s/files/1/0532/8070/2649/products/hexagon-blue-light-722249_800x.jpg?v=1659704777",
         "categoria": {
-            "modelo": "Lentes de vista",
+            "modelo": "Protección Blue",
             "id":"vista"
         }
     },
@@ -93,7 +93,7 @@
         "precio": 30000,
         "img": "https://cdn.shopify.com/s/files/1/0532/8070/2649/products/hustle-blue-light-756258_800x.jpg?v=1643435426",
         "categoria": {
-            "modelo": "Lentes de vista",
+            "modelo": "Protección Blue",
             "id":"vista"
         }
     },

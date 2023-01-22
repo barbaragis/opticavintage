@@ -101,7 +101,7 @@ function agregarCarrito (e){
         position: "right", 
         stopOnFocus: true, 
         style: {
-          background: "linear-gradient(to right, #00b09b, #96c93d)",
+          background: "linear-gradient(to right, #52796F, #2F3E46)",
         },
         onClick: function(){} 
       }).showToast();
@@ -143,7 +143,7 @@ function enviarForm(){
             position: "top", 
             stopOnFocus: true, 
             style: {
-              background: "linear-gradient(to right, #00b09b, #96c93d)",
+              background: "(to right, #D4A373, #96c93d)",
             },
             onClick: function(){} 
           }).showToast();
@@ -179,7 +179,7 @@ function enviarForm(){
                 position: "center", 
                 stopOnFocus: true, 
                 style: {
-                  background: "linear-gradient(to right, #00b09b, #96c93d)",
+                  background: "linear-gradient(to right, #D5BDAF #D5BDAF)",
                 },
                 onClick: function() {} 
               }).showToast();
