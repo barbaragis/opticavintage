@@ -1,0 +1,136 @@
+[
+    {
+        "id": "Gold" ,
+        "modelo": "GOLD BLUE",
+        "precio": 10000,
+        "img": "https://cdn.shopify.com/s/files/1/0532/8070/2649/products/drip-670663_800x.jpg?v=1643435359",
+        "categoria": {
+            "modelo": "Lentes de sol",
+            "id":"sol"
+        }
+    },
+
+    {
+        "id":"Aviador",
+        "modelo": "AVIADOR BLACK",
+        "precio": 20000,
+        "img": "https://cdn.shopify.com/s/files/1/0532/8070/2649/products/john-334597_800x.jpg?v=1643435433",
+        "categoria": {
+            "modelo": "Lentes de sol",
+            "id":"sol"
+        }
+    },
+
+    {
+        "id":"Durk",
+        "modelo": "DURK",
+        "precio": 20000,
+        "img": "https://cdn.shopify.com/s/files/1/0532/8070/2649/products/durk-692810_800x.jpg?v=1643435357",
+        "categoria": {
+            "modelo": "Lentes de sol",
+            "id":"sol"
+        }
+    },
+
+    {
+        "id":"NewRose",
+        "modelo": "NEW ROSE",
+        "precio": 20000,
+        "img": "https://cdn.shopify.com/s/files/1/0532/8070/2649/products/savage-892578_800x.jpg?v=1643435484",
+        "categoria": {
+            "modelo": "Lentes de sol",
+            "id":"sol"
+        }
+    },
+
+    {
+        "id":"John",
+        "modelo": "JOHN",
+        "precio": 20000,
+        "img": "https://cdn.shopify.com/s/files/1/0532/8070/2649/products/joy-113521_800x.jpg?v=1668002392",
+        "categoria": {
+            "modelo": "Lentes de sol",
+            "id":"lentes de sol"
+        }
+    },
+
+    {
+        "id":"Sugar",
+        "modelo": "SUGAR",
+        "precio": 20000,
+        "img": "https://cdn.shopify.com/s/files/1/0532/8070/2649/products/sugar-672458_800x.jpg?v=1643435492",
+        "categoria": {
+            "modelo": "Lentes de sol",
+            "id":"sol"
+        }
+    },
+
+    {
+        "id":"Print",
+        "modelo": "PRINT",
+        "precio": 20000,
+        "img": "https://cdn.shopify.com/s/files/1/0532/8070/2649/products/notchy-498662_800x.jpg?v=1643435424",
+        "categoria": {
+            "modelo": "Lentes de sol",
+            "id":"sol"
+        }
+    },
+
+    {
+        "id":"Hexagon",
+        "modelo": "HEXAGON",
+        "precio": 20000,
+        "img": "https://cdn.shopify.com/s/files/1/0532/8070/2649/products/hexagon-blue-light-722249_800x.jpg?v=1659704777",
+        "categoria": {
+            "modelo": "Lentes de vista",
+            "id":"vista"
+        }
+    },
+    
+    {
+        "id":"Blue",
+        "modelo": "HUSTLE",
+        "precio": 30000,
+        "img": "https://cdn.shopify.com/s/files/1/0532/8070/2649/products/hustle-blue-light-756258_800x.jpg?v=1643435426",
+        "categoria": {
+            "modelo": "Lentes de vista",
+            "id":"vista"
+        }
+    },
+
+    {
+        "id":"Monaco",
+        "modelo": "MONACO",
+        "precio": 20000,
+        "img": "https://cdn.shopify.com/s/files/1/0532/8070/2649/products/monaco-781944_800x.jpg?v=1672175481",
+        "categoria": {
+            "modelo": "Lentes de sol",
+            "id":"sol"
+        }
+    },
+
+    {
+        "id":"Cadena",
+        "modelo": "CADENA",
+        "precio": 20000,
+        "img": "https://cdn.shopify.com/s/files/1/0532/8070/2649/products/chains-947165_800x.jpg?v=1643435357",
+        "categoria": {
+            "modelo": "Accesorios",
+            "id":"accesorios"
+        }
+    
+    },
+    
+
+    {
+        "id":"Funda",
+        "modelo": "FUNDA",
+        "precio": 30000,
+        "img": "https://cdn.shopify.com/s/files/1/0532/8070/2649/products/the-case-598069_800x.jpg?v=1668070562",
+        "categoria": {
+            "modelo": "Accesorios",
+            "id":"accesorios"
+        }
+      
+    }
+]

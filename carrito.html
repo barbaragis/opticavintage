@@ -15,53 +15,57 @@
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
 	<link href="https://fonts.googleapis.com/css2?family=Abyssinica+SIL&family=Roboto:wght@300&display=swap" rel="stylesheet"> 
 	<!-- CSS BOOTSTRAP --> 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous"> 
 	<!-- css --> 
 	<link rel="stylesheet" href="./css/style.css"> 
-
 	<title> OPTICA VINTAGE  </title>
 </head>
 <body>
   <!-- fila de navegacion y logo -->
-     <header>
-        <div class="contenido">
+  <header>
+    <nav class="navbar navbar-expand-lg bg-body">
+      <div class="container-fluid">
+        <a href="./index.html">
+        <img src="./resources/favicon.ico" class="navbar-brand" href="./index.html"></a>
+      </div>
+    </nav>
+    <div class="contenido">
       <nav>
         <ul>
           <li> 
-              <a class="link-volver" href="./index.html"> 
-                  <i class="bi bi-arrow-return-left"> Seguir comprando </i>
-              </a>
-            </li>
+            <a class="link-volver" href="./index.html"> 
+                <i class="bi bi-arrow-return-left"> Seguir comprando </i>
+            </a>
+          </li>
         </ul>
       </nav>
-        </div>
-    </header> 
-    <main>
-        <section>
-            <article class="portada__imagen">
-              <h1 class="portada__titulo"> OPTICA VINTAGE </h1>
-            </article>
-          </section>
-        <h2 class="titulo"> Carrito de compras </h2>
-        <div class="container-carrito ">
-            <p id="carrito-vacio" class="carrito-vacio"> Tu carrito está vacío </p>
-
-        <div id="carrito-productos" class="carrito-productos disabled" >
-        </div>
-        <div id="carrito-botones" class="carrito-botones">
-            <div>
-                <button id="carrito-vaciar" class="carrito-vaciar">VACIAR</button>
-                <p id="totalCompra"></p>
-            </div>
-            <button id="carrito-comprar" class="carrito-compra"> COMPRAR </button>
-        </div>
-        </div>
-        <div class="d-flex justify-content-center">
-        <p id="carrito-aviso" class="carrito-aviso disabled"> Tu compra ha sido exitosa! </i></p>
+    </div>
+  </header> 
+  <main>
+    <section>
+      <article class="portada__imagen">
+        <h1 class="portada__titulo"> OPTICA VINTAGE </h1>
+      </article>
+    </section>
+    <h2 class="titulo"> Carrito de compras </h2>
+    <div class="container-carrito ">
+      <p id="carrito-vacio" class="carrito-vacio"> Tu carrito está vacío </p>
+    <div id="carrito-productos" class="carrito-productos disabled" >
+    </div>
+    <div id="carrito-botones" class="carrito-botones">
+      <div>
+        <button id="carrito-vaciar" class="carrito-vaciar">VACIAR</button>
+        <p id="totalCompra"></p>
       </div>
-            </main>
-            <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-            <script src="./carrito.js"> </script>
+      <button id="carrito-comprar" class="carrito-compra"> COMPRAR </button>
+      </div>
+    </div>
+    <div class="d-flex justify-content-center">
+      <p id="carrito-aviso" class="carrito-aviso disabled"> Muchas gracias por tu compra  </p>
+    </div>
+  </main>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="./carrito.js"> </script>
 </body>
 </html>

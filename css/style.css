@@ -104,6 +104,12 @@ margin-bottom: 20px;
 
 }
 
+.container{
+    margin-bottom: 20px;
+}
+.formulario{
+    margin-bottom: 20px;
+}
 .carrito-prod-titulos{
 display: grid;
 }
@@ -122,12 +128,19 @@ footer{
 
 }
 
+.form-control{
+    margin-bottom: 20px;
+}
 
 main{
     background-color: white;
     
 }
 
+.form-titulo{
+    text-align: center;
+    margin-bottom: 20px;
+}
 
 
 .boton-filtro{
@@ -272,5 +285,10 @@ form h2{
 
 .form-group input{
     width: 60%;
+}
+
+.footer__texto{
+    text-align: left;
+    padding: 16px;
 }
 

@@ -1,147 +1,14 @@
 
 // OPTICA VINTAGE - Ecommerce de lentes
 
+let productos = [];
 
-//Productos
-
-const productos = [
-    {
-        id: "Gold" ,
-        modelo: "GOLD BLUE",
-        precio: 10000,
-        img: "https://cdn.shopify.com/s/files/1/0532/8070/2649/products/drip-670663_800x.jpg?v=1643435359",
-        categoria: {
-            modelo: "Lentes de sol",
-            id:"sol"
-        },
-    },
-
-    {
-        id:"Aviador",
-        modelo: "AVIADOR BLACK",
-        precio: 20000,
-        img: "https://cdn.shopify.com/s/files/1/0532/8070/2649/products/john-334597_800x.jpg?v=1643435433",
-        categoria: {
-            modelo: "Lentes de sol",
-            id:"sol"
-        },
-    },
-
-    {
-        id:"Durk",
-        modelo: "DURK",
-        precio: 20000,
-        img: "https://cdn.shopify.com/s/files/1/0532/8070/2649/products/durk-692810_800x.jpg?v=1643435357",
-        cantidad: 1,
-        categoria: {
-            modelo: "Lentes de sol",
-            id:"sol"
-        },
-    },
-
-    {
-        id:"NewRose",
-        modelo: "NEW ROSE",
-        precio: 20000,
-        img: "https://cdn.shopify.com/s/files/1/0532/8070/2649/products/savage-892578_800x.jpg?v=1643435484",
-        categoria: {
-            modelo: "Lentes de sol",
-            id:"sol"
-        },
-    },
-
-    {
-        id:"John",
-        modelo: "JOHN",
-        precio: 20000,
-        img: "https://cdn.shopify.com/s/files/1/0532/8070/2649/products/joy-113521_800x.jpg?v=1668002392",
-        categoria: {
-            modelo: "Lentes de sol",
-            id:"lentes de sol"
-        },
-    },
-
-    {
-        id:"Sugar",
-        modelo: "SUGAR",
-        precio: 20000,
-        img: "https://cdn.shopify.com/s/files/1/0532/8070/2649/products/sugar-672458_800x.jpg?v=1643435492",
-        categoria: {
-            modelo: "Lentes de sol",
-            id:"sol"
-        },
-    },
-
-    {
-        id:"Print",
-        modelo: "PRINT",
-        precio: 20000,
-        img: "https://cdn.shopify.com/s/files/1/0532/8070/2649/products/notchy-498662_800x.jpg?v=1643435424",
-        categoria: {
-            modelo: "Lentes de sol",
-            id:"sol"
-        },
-    },
-
-    {
-        id:"Hexagon",
-        modelo: "HEXAGON",
-        precio: 20000,
-        img: "https://cdn.shopify.com/s/files/1/0532/8070/2649/products/hexagon-blue-light-722249_800x.jpg?v=1659704777",
-        categoria: {
-            modelo: "Lentes de vista",
-            id:"vista"
-        },
-    },
-    
-    {
-        id:"Blue",
-        modelo: "HUSTLE",
-        precio: 30000,
-        img: "https://cdn.shopify.com/s/files/1/0532/8070/2649/products/hustle-blue-light-756258_800x.jpg?v=1643435426",
-        categoria: {
-            modelo: "Lentes de vista",
-            id:"vista"
-        },
-    },
-
-    {
-        id:"Monaco",
-        modelo: "MONACO",
-        precio: 20000,
-        img: "https://cdn.shopify.com/s/files/1/0532/8070/2649/products/monaco-781944_800x.jpg?v=1672175481",
-        categoria: {
-            modelo: "Lentes de sol",
-            id:"sol"
-        },
-    },
-
-    {
-        id:"Cadena",
-        modelo: "CADENA",
-        categoria: "Accesorios",
-        precio: 20000,
-        img: "https://cdn.shopify.com/s/files/1/0532/8070/2649/products/chains-947165_800x.jpg?v=1643435357",
-        categoria: {
-            modelo: "Accesorios",
-            id:"accesorios"
-        },
-    
-    },
-    
-
-    {
-        id:"Funda",
-        modelo: "FUNDA",
-        precio: 30000,
-        img: "https://cdn.shopify.com/s/files/1/0532/8070/2649/products/the-case-598069_800x.jpg?v=1668070562",
-        categoria: {
-            modelo: "Accesorios",
-            id:"accesorios"
-        },
-      
-    }
-];
+fetch("./productos.json")
+    .then (response => response.json())
+    .then (data => {
+        productos = data;
+        verProductos(productos);
+    })
 
 
 const containerProductos = document.querySelector("#container-prod");
@@ -177,8 +44,6 @@ function verProductos (productoSeleccionado) {
 
 }
 
-verProductos(productos);
-
 
 // Botones con categorias de productos
 
@@ -203,6 +68,8 @@ botonCategoria.forEach(boton => {
     })
 })
 
+//Boton agregar productos al carrito
+
 function agregar (){
 
     let agregarProducto = document.querySelectorAll(".productos-agregar");
@@ -225,13 +92,20 @@ if (carritoLS){
 }
 
 function agregarCarrito (e){
-    Swal.fire({
-        position: 'top-end',
-        icon: 'success',
-        title: 'Producto agregado al carrito',
-        showConfirmButton: false,
-        timer: 1500
-      })
+    Toastify({
+        text: "Agregaste un producto al carrito 🛒 ",
+        duration: 3000,
+        destination: "https://github.com/apvarun/toastify-js",
+        newWindow: true,
+        gravity: "bottom", 
+        position: "right", 
+        stopOnFocus: true, 
+        style: {
+          background: "linear-gradient(to right, #00b09b, #96c93d)",
+        },
+        onClick: function(){} 
+      }).showToast();
+
     const idAgregar = e.currentTarget.id;
     const prodAgregado = productos.find (item => item.id === idAgregar);
     
@@ -243,6 +117,7 @@ function agregarCarrito (e){
         carrito.push(prodAgregado);
     }
 
+    //Cambio de cantidad en carrito al agregar nuevos productos
     carritoNumero();
 
     localStorage.setItem("carrito" , JSON.stringify(carrito))
@@ -253,20 +128,60 @@ function carritoNumero (){
     cantidad.innerText = numero;
 }
 
-//NEWSLETTER
 
-const newsletter = document.querySelector('.newsletter-modal');
-const newsletterNuevo = document.getElementById('newsletter-formulario');
+//newsletter
 
+function enviarForm(){
+    let nombreForm = document.getElementById("nombre").value;
+    let emailForm = document.getElementById("correo").value;
+    if(nombreForm == ""){
+        Toastify({
+            text: "Debes ingresar tu nombre",
+            duration: 3000,
+            newWindow: true,
+            gravity: "top", 
+            position: "top", 
+            stopOnFocus: true, 
+            style: {
+              background: "linear-gradient(to right, #00b09b, #96c93d)",
+            },
+            onClick: function(){} 
+          }).showToast();
+    
+          document.getElementById("nombre").focus();
 
-newsletter.addEventListener('click' , (e) => {
-    if (e.target == newsletter){
-        newsletter.style.display = 'none';
-    }
-});
+    }else{
+        if (emailForm == ""){
+            Toastify({
+                text: "Debes ingresar tu correo electrónico",
+                duration: 3000,
+                newWindow: true,
+                gravity: "top", 
+                position: "top",
+                stopOnFocus: true, 
+                style: {
+                  background: "linear-gradient(to right, #00b09b, #96c93d)",
+                },
+                onClick: function(){} 
+              }).showToast();
+        document.getElementById("correo").focus();
+        }else{
 
-newsletterNuevo.addEventListener ('submit' , (e) => {
-    e.preventDefault ();
-
-    newsletter.style.display = 'none';
-});
+            document.getElementById("nombre").value = "";
+            document.getElementById("correo").value = "";
+            document.getElementById("nombre").focus();
+            document.getElementById("correo").focus();
+            Toastify({
+                text: "Gracias por suscribirte ! Estarás recibiendo nuestras novedades a la brevedad ",
+                duration: 3000,
+                newWindow: true,
+                gravity: "center", 
+                position: "center", 
+                stopOnFocus: true, 
+                style: {
+                  background: "linear-gradient(to right, #00b09b, #96c93d)",
+                },
+                onClick: function() {} 
+              }).showToast();
+            }
+        }}

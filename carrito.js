@@ -10,6 +10,9 @@ const botonVaciar = document.querySelector("#carrito-vaciar");
 const totalCompra = document.querySelector("#totalCompra");
 const botonComprar = document.querySelector("#carrito-comprar");
 
+
+// Productos en carrito 
+
 function verProductosDeCarrito(){
         if (carrito && carrito.length > 0 ) {
 
@@ -31,20 +34,18 @@ function verProductosDeCarrito(){
         <h4> ${item.modelo} </h4>
     </div>
     <div class="carrito-prod-titulos"">
-    <span class="restar"> - </span>
         <p> CANTIDAD </p>
         <h4> ${item.cantidad}</h4>
-        <span class="sumar"> +  </span>
-</div>
-<div class="carrito-prod-titulos"">
-    <p> PRECIO </p>
-    <h4> $ ${item.precio} </h4>
-</div>
-<div class="carrito-prod-titulos"">
-<p> SUBTOTAL </p>
-<h4> $ ${item.precio * item.cantidad}</h4>
-</div>
-<button class="carrito-prod-eliminar" id="${item.id}">🗑️</button>
+    </div>
+    <div class="carrito-prod-titulos"">
+        <p> PRECIO </p>
+        <h4> $ ${item.precio} </h4>
+    </div>
+    <div class="carrito-prod-titulos"">
+        <p> SUBTOTAL </p>
+        <h4> $ ${item.precio * item.cantidad}</h4>
+    </div>
+    <button class="carrito-prod-eliminar" id="${item.id}">🗑️</button>
     `
     ;
 
@@ -68,7 +69,7 @@ generarTotal();
 verProductosDeCarrito();
 
 
-
+// Boton eliminar producto
 function eliminar (){
     botonEliminar = document.querySelectorAll(".carrito-prod-eliminar");
     botonEliminar.forEach (boton => {
@@ -90,38 +91,41 @@ function eliminarCarrito(e){
     
 }
 
+// Eliminar todos los productos del carrito 
+
 botonVaciar.addEventListener("click" , vaciarCarrito);
 
 function vaciarCarrito(){
 
     Swal.fire({
-        title: 'Estás seguro?',
+        title: 'Estás seguro ?',
         icon: 'warning',
+        html: 'Se borrarán todos los productos del carrito',
         showCancelButton: true,
         confirmButtonColor: '#3085d6',
         cancelButtonColor: '#d33',
-        confirmButtonText: 'Si ,!',
+        confirmButtonText: 'Si!',
         cancelButtonText: 'No',
-      }).then((result) => {
+    }).then((result) => {
         if (result.isConfirmed) {
-            carrito.length = 0;
-            localStorage.setItem("carrito" , JSON.stringify(carrito));
-            verProductosDeCarrito();
-          }
-      })
+        carrito.length = 0;
+        localStorage.setItem("carrito" , JSON.stringify(carrito));
+        verProductosDeCarrito();
+        }
+    })
 
-      totalCompra.classList.add("disabled");
+    totalCompra.classList.add("disabled");
 }
 
-
+// Total de compra 
 function generarTotal(){
     const totalNumero = carrito.reduce((acc, item) => acc + (item.precio * item.cantidad) , 0);
     totalCompra.innerText =  `
-    TOTAL : $ ${totalNumero};
+    TOTAL : $ ${totalNumero}
     `
 }
 
-
+// Comprar productos 
 botonComprar.addEventListener("click" , comprarProductos);
 
 function comprarProductos() {
